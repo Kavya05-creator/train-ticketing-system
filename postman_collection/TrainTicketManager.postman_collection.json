@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "8853e518-28a3-4f05-b1fb-679ed360e64c",
+		"name": "TrainTicketManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25630436"
+	},
+	"item": [
+		{
+			"name": "PurchaseTicket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"from\": \"London\",\r\n  \"to\": \"France\",\r\n  \"user\": {\r\n    \"firstName\": \"pavan\",\r\n    \"lastName\": \"patil\",\r\n    \"email\": \"pavan.patil@example.com\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/ticket/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ticket",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserByEmail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/ticket/receipt/john.doe@example.co",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ticket",
+						"receipt",
+						"john.doe@example.co"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserBySection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/user/section/A",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"section",
+						"A"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/user/remove/john.doe@example.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"remove",
+						"john.doe@example.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"seatNumber\": 15,\r\n  \"section\": \"A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/user/modify/john.doe@example.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"modify",
+						"john.doe@example.com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
