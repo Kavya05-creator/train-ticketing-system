@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"from\": \"London\",\r\n  \"to\": \"France\",\r\n  \"user\": {\r\n    \"firstName\": \"pavan\",\r\n    \"lastName\": \"patil\",\r\n    \"email\": \"pavan.patil@example.com\"\r\n  }\r\n}\r\n",
+					"raw": "{\r\n  \"from\": \"London\",\r\n  \"to\": \"France\",\r\n  \"user\": {\r\n    \"firstName\": \"john\",\r\n    \"lastName\": \"doe\",\r\n    \"email\": \"john.doe@example.com\"\r\n  }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"

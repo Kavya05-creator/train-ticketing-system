@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -29,8 +31,10 @@ public class TicketServiceImpl implements TicketService {
     }
 
     private void validateUser(User user) {
-        if (user.getFirstName() == null || user.getLastName() == null || user.getEmail() == null) {
+        if (isEmptyorNull(user.getFirstName()) || isEmptyorNull(user.getLastName())  || isEmptyorNull(user.getEmail())) {
             throw new IllegalArgumentException("User details are incomplete.");
+        } else if (!isValidEmail(user.getEmail())) {
+            throw new IllegalArgumentException("User email id is invalid.");
         }
     }
 
@@ -107,4 +111,22 @@ public class TicketServiceImpl implements TicketService {
             return new Response(0, "User not found " + email);
         }
     }
+
+    public boolean isEmptyorNull(String value){
+        if(value==null||value.trim().isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    private static final String EMAIL_REGEX =
+            "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
+    private static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
+
+    public static boolean isValidEmail(String email) {
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
 }
